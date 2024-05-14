@@ -38,5 +38,11 @@ label start:
         $ persistent.loaded = True
         call screen lobby
     
+image cafe = "ui/cafe.png"
+label alyssa:
+    $ renpy.transition(dissolve)
+    show cafe
+    $ order = generate_order()
+    "[order[1]]" 
+    call screen cafe
 
- 

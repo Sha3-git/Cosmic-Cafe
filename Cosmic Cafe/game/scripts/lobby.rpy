@@ -14,7 +14,8 @@ screen lobby():
         imagebutton idle "ui/shop.png" hover "ui/shop.png" at hover_button_transform action Show("store")
     hbox: 
         style "lobby_play"
-        imagebutton idle "ui/play.png" hover "ui/play_hover.png" action Show("store")
+        imagebutton idle "ui/play.png" hover "ui/play_hover.png" action Show("cafe")
+
     text "files [files]" yalign 1.0
     use header()
 
