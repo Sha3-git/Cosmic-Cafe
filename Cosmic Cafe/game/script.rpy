@@ -8,6 +8,9 @@
 # The game starts here.
 default persistent.loaded = False
 default persistent.default_balance = 10
+default inventory = []
+
+
 init python:
     class player_object:       
         def __init__(self, name, balance, ingredients):
@@ -18,8 +21,22 @@ init python:
             self.balance = self.balance - price
             persistent.default_balance = self.balance
 
-            
+
+    def update_inventory(name, characteristic):
+        ingredient = {
+            "name": name,
+            "characteristic": characteristic,
+            "multiplier": 1
+        }
+        inventory.append(ingredient)
+        if len(inventory) > 0:
+            for x in range(len(inventory)):
+                if ingredient["name"] == inventory[x]["name"]:  
+                    inventory[x]["multiplier"] += 1
+        else:
+            inventory.append(ingredient)
            
+
 
 
 
