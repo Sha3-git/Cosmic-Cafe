@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/scripts/cafe.rpy", line 14: vbox expects a non-empty block.
+    vbox: 
+          ^
+
+Ren'Py Version: Ren'Py 8.2.1.24030407
+Fri May 17 03:46:14 2024

@@ -6,7 +6,7 @@
 
 
 # The game starts here.
-define persistent.loaded = False
+default persistent.loaded = False
 default persistent.default_balance = 10
 init python:
     class player_object:       
@@ -42,7 +42,8 @@ image cafe = "ui/cafe.png"
 label alyssa:
     $ renpy.transition(dissolve)
     show cafe
-    $ order = generate_order()
+    #$ order = generate_order()
+    $ order = gen_order()
     "[order[1]]" 
     call screen cafe
 
