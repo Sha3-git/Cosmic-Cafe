@@ -18,10 +18,12 @@ screen store():
     hbox:
         yalign 0.5
         xalign 0.5
-        textbutton _(ingredients[0]["name"]) action Function(update_inventory, ingredients[0]["name"], ingredients[0]["characteristic"])             
+        textbutton _(ingredients[0]["name"]) action [Function(session_user.update_inventory, ingredients[0]["name"], ingredients[0]["characteristic"], ingredients[0]["price"]), Function(session_user.update_bal, ingredients[0]["price"], 1)]             
         textbutton _("item 2") #action Function(session_user.update_bal, 3, 2) 
-        if inventory[0]:
-            text "[inventory[0]["name"]]"
+        if inventory:
+            $txt = inventory[0]["name"]
+            $multiplier = inventory[0]["multiplier"]
+            text "[txt]" + "[multiplier]"
     grid 2 3:
         text "Top-Left"
         text "Top-Right"

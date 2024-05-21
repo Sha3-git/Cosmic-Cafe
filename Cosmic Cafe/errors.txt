@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/store.rpy", line 24: 'name' is not a keyword argument or valid child of the text statement.
-    text "[inventory[0]["name"]]"
-                             ^
+File "game/scripts/lobby.rpy", line 14: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+            imagebutton idle "ui/shop.png" hover "ui/shop.png" at hover_shop_transform action Show("store
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Mon May 20 15:21:16 2024
+Tue May 21 12:58:37 2024

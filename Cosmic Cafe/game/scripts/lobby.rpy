@@ -11,7 +11,10 @@ screen lobby():
         textbutton _("store") action Show("store")
     hbox: 
         style "lobby_shop"
-        imagebutton idle "ui/shop.png" hover "ui/shop.png" at hover_button_transform action Show("store")
+        imagebutton idle "ui/shop.png" hover "ui/shop.png" at hover_shop_transform action Show("store")
+    hbox:
+        style "lobby_ticket"
+        imagebutton idle "ui/menu_ticket.png" hover "ui/menu_ticket.png" at hover_ticket_transform action Show("summon")
     hbox: 
         style "lobby_play"
         imagebutton idle "ui/play.png" hover "ui/play_hover.png" action Show("cafe")
@@ -22,11 +25,20 @@ screen lobby():
 style lobby_shop:
     yalign 0.95 
     xalign 0.95
+style lobby_ticket:
+    yalign 0.94 
+    xalign 0.85
 style lobby_play:
     xalign 0.95
     yalign 0.5
 
-transform hover_button_transform:
+transform hover_shop_transform:
+    on hover:
+        linear 0.1 zoom 1.05
+    on idle:
+        linear 0.1 zoom 1.0
+
+transform hover_ticket_transform:
     on hover:
         linear 0.1 zoom 1.05
     on idle:

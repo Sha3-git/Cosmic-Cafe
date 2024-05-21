@@ -15,7 +15,7 @@ screen header():
     hbox:
         yalign 0.09
         xalign 0.9
-        text "1000" color "#fff"        
+        text "[persistent.default_balance]" color "#fff"        
 
 style ratings:
     yalign -0.1
