@@ -12,9 +12,19 @@ screen summon():
         xalign 0.5
         vbox: 
             if persistent.default_balance >= 1000:
-                add "ui/gacha.png"
+                imagebutton idle "ui/gacha.png" hover "ui/gacha.png" at hover_summon_transform action ShowMenu("summoned")
             else:
                 add "ui/gacha_disabled.png"
+    hbox: 
+        yalign 0.7
+        xalign 0.5
+        add "ui/cost.png" 
+
     use header()
 
 
+transform hover_summon_transform:
+    on hover:
+        linear 0.1 zoom 1.05
+    on idle:
+        linear 0.1 zoom 1.0

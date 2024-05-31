@@ -2,6 +2,7 @@ screen cafe():
     $ renpy.transition(dissolve)
     tag menu
     add "ui/cafe.png"
+    
     hbox:
         xalign 0.5
         yalign 0.5
@@ -9,12 +10,19 @@ screen cafe():
         viewport id "vp":
             xalign 0.5
             yalign 0.5
+            mousewheel True
             xmaximum 1200
             ymaximum 600
             vbox: 
-                add "gui/frame.png"
-                add "gui/frame.png"
+                add "ui/order.png" xalign 0.5 yalign 0.5
+            vbox:
+                xalign 0.2 
+                text "alyssa\n" color "#fff"
+                text "something sweet" color "#fff"
+            vbox: 
+                add "ui/order.png" xalign 0.5 yalign 0.7
             scrollbars "vertical"
+    
             
 
 
@@ -23,3 +31,5 @@ screen cafe():
 style cafe_button:
     hover_color "#ce3dd3"
     color "#ffffff"
+#style order_style:
+    
