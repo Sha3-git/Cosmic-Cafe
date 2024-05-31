@@ -1,13 +1,13 @@
 init python:
     ingredients = [
         {
-                "name": "Asteroid Spice",
+                "name": "Bottled Nebula",
                 "rarity": "Common",
                 "price": 50,
-                "characteristic": "Spicy"
+                "characteristic": "Sweet"
         },
         {
-                "name": "Comet Citrus",
+                "name": "Planet Pearls",
                 "rarity": "Common",
                 "price": 60,
                 "characteristic": "Tangy"
@@ -19,13 +19,31 @@ init python:
                 "characteristic": "Sweet"
         },
         {
-                "name": "Solar Cinnamon",
+                "name": "White Dwarf Water",
+                "rarity": "Common",
+                "price": 0,
+                "characteristic": "Refreshing"
+        },
+        {
+                "name": "Milky Way",
                 "rarity": "Common",
                 "price": 55,
                 "characteristic": "Warm"
         },
         {
-                "name": "Galactic Sea Salt",
+                "name": "Sparkling Rain",
+                "rarity": "Common",
+                "price": 75,
+                "characteristic": "Fizzy"
+        },
+        {
+                "name": "Shot of Gamma Ray Burst",
+                "rarity": "Uncommon",
+                "price": 90,
+                "characteristic": "Energizing"
+        },
+        {
+                "name": "Salt from a Comet",
                 "rarity": "Uncommon",
                 "price": 80,
                 "characteristic": "Salty"
@@ -37,16 +55,16 @@ init python:
                 "characteristic": "Floral"
         },
         {
-                "name": "Planetary Pepper",
+                "name": "Lenakaiea Leaves",
                 "rarity": "Uncommon",
                 "price": 70,
-                "characteristic": "Hot"
+                "characteristic": "Herbal"
         },
         {
-                "name": "Interstellar Ginger",
+                "name": "Quantum Foam",
                 "rarity": "Uncommon",
                 "price": 85,
-                "characteristic": "Spicy"
+                "characteristic": "Sweet"
         },
         {
                 "name": "Starfruit Essence",
@@ -54,8 +72,14 @@ init python:
                 "price": 150,
                 "characteristic": "Sweet"
         },
+                {
+                "name": "Sakura Boba",
+                "rarity": "Rare",
+                "price": 200,
+                "characteristic": "Sweet"
+        },
         {
-                "name": "Nebula Honey",
+                "name": "Halley's Comet Honey",
                 "rarity": "Rare",
                 "price": 120,
                 "characteristic": "Sweet"
@@ -79,19 +103,19 @@ init python:
                 "characteristic": "Nutty"
         },
         {
-                "name": "Solar Vanilla",
+                "name": "Pulsar Boba",
                 "rarity": "Epic",
                 "price": 200,
                 "characteristic": "Sweet"
         },
         {
-                "name": "Cosmic Cocoa",
+                "name": "Constellation Cocoa",
                 "rarity": "Epic",
                 "price": 180,
                 "characteristic": "Rich"
         },
         {
-                "name": "Orion Orange Zest",
+                "name": "Orion Orange",
                 "rarity": "Epic",
                 "price": 220,
                 "characteristic": "Citrusy"
@@ -103,7 +127,7 @@ init python:
                 "characteristic": "Fruity"
         },
         {
-                "name": "Pluto Pistachios",
+                "name": "Pluto Pistachio",
                 "rarity": "Epic",
                 "price": 210,
                 "characteristic": "Nutty"
