@@ -22,7 +22,10 @@ screen cafe():
             vbox: 
                 add "ui/order.png" xalign 0.5 yalign 0.7
             scrollbars "vertical"
-    
+    hbox:
+        xalign 0.05
+        yalign 0.95
+        textbutton "kitchen" action Show("kitchen")
             
 
 
