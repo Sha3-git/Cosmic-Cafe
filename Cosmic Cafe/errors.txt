@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/kitchen.rpy", line 5: 'background' is not a keyword argument or valid child of the viewport statement.
-    background "gui/cafe_menu/menu.png"
-              ^
+File "game/scripts/kitchen.rpy", line 7: the background keyword argument was not given a value.
+    background 
+               ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Thu May 30 20:45:38 2024
+Sun Jun  2 04:47:02 2024
