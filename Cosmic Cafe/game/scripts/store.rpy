@@ -24,15 +24,33 @@ screen store():
             $txt = inventory[0]["name"]
             $multiplier = inventory[0]["multiplier"]
             text "[txt]" + "[multiplier]"
-    grid 2 3:
-        text "Top-Left"
-        text "Top-Right"
+    fixed:
+        
+        viewport id "vp":
+            mousewheel True
+            xmaximum 1300
+            ymaximum 800
+            xalign 0.5
+            yalign 0.7
+            grid 5 3:
+                spacing 50
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png")
 
-        text "Center-Left"
-        text "Center-Right"
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png")
 
-        text "Bottom-Left"
-        text "Bottom-Right"
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+                imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png")
     use header()
 
 

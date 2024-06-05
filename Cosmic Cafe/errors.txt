@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/kitchen.rpy", line 18: the color keyword argument was not given a value.
-    text "10" color
-                   ^
+File "game/scripts/store.rpy", line 31: 'padding' is not a keyword argument or valid child of the viewport statement.
+    padding (40, 50, 0, 50) 
+           ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Tue Jun  4 19:50:00 2024
+Tue Jun  4 20:28:22 2024
