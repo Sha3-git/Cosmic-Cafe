@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/store.rpy", line 31: 'padding' is not a keyword argument or valid child of the viewport statement.
-    padding (40, 50, 0, 50) 
-           ^
+File "game/scripts/store.rpy", line 28: invalid syntax
+    rows = round(len(in) /3) + (len(inventory) % 3)
+                      ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Tue Jun  4 20:28:22 2024
+Wed Jun  5 14:34:38 2024

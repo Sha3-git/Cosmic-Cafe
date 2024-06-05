@@ -37,13 +37,13 @@ init python:
                 "characteristic": "Fizzy"
         },
         {
-                "name": "Shot of Gamma Ray Burst",
+                "name": "Shot of Gamma",
                 "rarity": "Uncommon",
                 "price": 90,
                 "characteristic": "Energizing"
         },
         {
-                "name": "Salt from a Comet",
+                "name": "Salt from Sirius",
                 "rarity": "Uncommon",
                 "price": 80,
                 "characteristic": "Salty"
@@ -79,7 +79,7 @@ init python:
                 "characteristic": "Sweet"
         },
         {
-                "name": "Halley's Comet Honey",
+                "name": "Halley's Honey",
                 "rarity": "Rare",
                 "price": 120,
                 "characteristic": "Sweet"
@@ -103,7 +103,7 @@ init python:
                 "characteristic": "Nutty"
         },
         {
-                "name": "Pulsar Boba",
+                "name": "Pulsar Pearls",
                 "rarity": "Epic",
                 "price": 200,
                 "characteristic": "Sweet"

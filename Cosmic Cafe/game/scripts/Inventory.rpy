@@ -25,7 +25,7 @@ screen store():
             $multiplier = inventory[0]["multiplier"]
             text "[txt]" + "[multiplier]"
 
-    $ rows = round(len(ingredients) /3) + (len(ingredients) % 3)
+    $ rows = round(len(inventory) /3) + (len(inventory) % 3)
     
     fixed:
         viewport id "vp":
@@ -34,8 +34,8 @@ screen store():
             ymaximum 800
             xalign 0.5
             yalign 0.7
-            if ingredients:
-                grid 5 3:
+            if inventory:
+                grid 5 rows:
                     spacing 50
                     imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
                
