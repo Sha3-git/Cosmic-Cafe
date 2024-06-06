@@ -34,11 +34,12 @@ screen store():
             ymaximum 800
             xalign 0.5
             yalign 0.7
-            if ingredients:
-                grid 5 3:
-                    spacing 50
-                    imagebutton idle "ui/items/item1.png" action Function(select_ingredient, "ui/items/item1.png") 
+            grid 5 rows:
+                spacing 50
+                for i in range (len(ingredients)):
+                    imagebutton idle "ui/ingredients/" + ingredients[i]["name"]+ ".png" action [Function(session_user.update_inventory, ingredients[i]["name"], ingredients[i]["characteristic"], ingredients[i]["price"]), Function(session_user.update_bal, ingredients[i]["price"], 1)]
                
     use header()
+
 
 
