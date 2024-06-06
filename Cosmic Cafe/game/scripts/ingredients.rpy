@@ -131,5 +131,11 @@ init python:
                 "rarity": "Epic",
                 "price": 210,
                 "characteristic": "Nutty"
+        },
+        {
+                "name": "Supergawp",
+                "rarity": "Epic",
+                "price": 10000,
+                "characteristic": "Nutty"
         }
     ]   
