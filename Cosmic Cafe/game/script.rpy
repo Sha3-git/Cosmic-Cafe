@@ -32,6 +32,8 @@ init python:
                     for x in range(len(inventory)):
                         if ingredient["name"] == inventory[x]["name"]:  
                             inventory[x]["multiplier"] += 1
+                        else:
+                            inventory.append(ingredient)
                 else:
                     inventory.append(ingredient)
                 purchase_state = True
@@ -55,8 +57,11 @@ init python:
            
 
 
-
-
+image splash = Movie(channel="movie_dp", play="/animated/splash_screen.webm")
+label splashscreen:
+    show  splash with dissolve 
+    with Pause(12.5)
+    return
 label start:
     $ renpy.transition(dissolve)
     $ username = "default"
