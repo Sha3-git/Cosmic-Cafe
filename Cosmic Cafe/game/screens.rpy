@@ -287,6 +287,8 @@ style quick_button_text:
 ## to other menus, and to start the game.
 
 screen navigation():
+    
+    add "gui/main_menu/menu options.png" yalign 0.5 xalign 0.1
 
     vbox:
         style_prefix "navigation"
@@ -355,7 +357,7 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add "gui/main_menu/main_menu_bg.png"
     
     
 
@@ -367,16 +369,6 @@ screen main_menu():
     ## contents of the main menu are in the navigation screen.
     use navigation
 
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
 
 
 style main_menu_frame is empty

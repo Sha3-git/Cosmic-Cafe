@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/store.rpy", line 45: 'exec' is not a keyword argument or valid child of the for statement.
-(Perhaps you left out a " at the end of the first line.)
-    exec(f"""
-        ^
-                transform scale_up_{i}:
-                    on hover:
-                        linear 0.1 zoom 1.05  # Scale up over 0.1 seconds
-                    on idle:
-                        linear 0.1 zoom 1.0  # Return to original size over 0.1 seconds
-    
-            """)
+File "game/screens.rpy", line 290: 'yalign' is not a keyword argument or valid child of the screen statement.
+    yalign 0.5
+          ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Wed Jun  5 19:21:15 2024
+Thu Jun  6 00:07:42 2024

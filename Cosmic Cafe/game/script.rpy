@@ -18,8 +18,9 @@ init python:
             self.name = name
             self.balance = balance
         def update_bal(self, price, amount):
-            self.balance = self.balance - price
-            persistent.default_balance = self.balance
+            if self.balance >= price:
+                self.balance = self.balance - price
+                persistent.default_balance = self.balance
         def update_inventory(self, name, characteristic, price):
             ingredient = {
                 "name": name,
