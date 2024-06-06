@@ -75,7 +75,7 @@ init python:
                 {
                 "name": "Sakura Boba",
                 "rarity": "Rare",
-                "price": 200,
+                "price": 190,
                 "characteristic": "Sweet"
         },
         {
@@ -111,7 +111,7 @@ init python:
         {
                 "name": "Constellation Cocoa",
                 "rarity": "Epic",
-                "price": 180,
+                "price": 220,
                 "characteristic": "Rich"
         },
         {
