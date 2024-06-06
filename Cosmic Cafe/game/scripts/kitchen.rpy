@@ -13,14 +13,18 @@ screen kitchen():
             xalign 0.05
             grid 3 7:
                 spacing 30
+                for i in range(len(persistent.inventory)):
+                    vbox:
+                        imagebutton idle "ui/items/ingredient1.png" action Function(select_ingredient, "Bottled Nebula") 
+                        text str(persistent.inventory[i]["multiplier"]) color "#fff" xalign 0.5
                 vbox:
-                    imagebutton idle "ui/items/ingredient1.png" action Function(select_ingredient, "ui/items/ingredient1.png") tooltip "10"
+                    imagebutton idle "ui/items/ingredient1.png" action Function(select_ingredient, "ui/items/ingredient1.png") 
                     text "10" color "#fff" xalign 0.5
                 vbox:
-                    imagebutton idle "ui/items/ingredient2.png" action Function(select_ingredient, "ui/items/ingredient2.png") tooltip "10"
+                    imagebutton idle "ui/items/ingredient2.png" action Function(select_ingredient, "ui/items/ingredient2.png") 
                     text "10" color "#fff" xalign 0.5
                 vbox:
-                    imagebutton idle "ui/items/ingredient1.png" action Function(select_ingredient, "ui/items/ingredient1.png") tooltip "10"
+                    imagebutton idle "ui/items/ingredient1.png" action Function(select_ingredient, "ui/items/ingredient1.png") 
                     text "10" color "#fff" xalign 0.5
     
     hbox:
@@ -35,7 +39,7 @@ screen kitchen():
             spacing 135
             if len(selected_ingredients) > 0:
                 for ingredient in selected_ingredients:
-                    imagebutton idle ingredient action Function(deselect_ingredient, ingredient)
+                    imagebutton idle "ui/items/" + ingredient + ".png" action Function(deselect_ingredient, ingredient)
             
             #imagebutton idle ing_1
             #imagebutton idle ing_2
@@ -47,14 +51,22 @@ init python:
 
     def select_ingredient(name):
         global selected_ingredients
-        if len(selected_ingredients) < 3:
-            #if name not in selected_ingredients:
-                selected_ingredients.append(name)
-                renpy.restart_interaction()
+        # Find the ingredient in the inventory
+        for item in persistent.inventory:
+            if item["name"] == name:
+                if item["multiplier"] > 0 and len(selected_ingredients) < 3:
+                    item["multiplier"] -= 1
+                    selected_ingredients.append(name)
+                    renpy.restart_interaction()
+                break
 
     def deselect_ingredient(name):
         global selected_ingredients
-        #if name in selected_ingredients:
+        # Find the ingredient in the inventory
+        for item in persistent.inventory:
+            if item["name"] == name:
+                item["multiplier"] += 1
+                break
         selected_ingredients.remove(name)
         renpy.restart_interaction()
 

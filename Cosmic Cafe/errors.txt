@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 290: 'yalign' is not a keyword argument or valid child of the screen statement.
-    yalign 0.5
-          ^
+File "game/scripts/kitchen.rpy", line 42: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+                        imagebutton idle "ui/ioingredient + ".png" action Function(deselect_ingredient, ingredient)
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Thu Jun  6 00:07:42 2024
+Thu Jun  6 09:51:46 2024

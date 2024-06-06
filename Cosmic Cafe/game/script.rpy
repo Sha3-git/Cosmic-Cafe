@@ -9,7 +9,7 @@
 default persistent.loaded = False
 default persistent.default_balance = 1000
 default persistent.name = "user"
-default inventory = []
+default persistent.inventory = []
 define purchase_state = False
 
 init python:
@@ -28,32 +28,32 @@ init python:
                 "multiplier": 1
             }
             if self.balance >= price:
-                if len(inventory) > 0:
-                    for x in range(len(inventory)):
-                        if ingredient["name"] == inventory[x]["name"]:  
-                            inventory[x]["multiplier"] += 1
+                if len(persistent.inventory) > 0:
+                    for x in range(len(persistent.inventory)):
+                        if ingredient["name"] == persistent.inventory[x]["name"]:  
+                            persistent.inventory[x]["multiplier"] += 1
                         else:
-                            inventory.append(ingredient)
+                            persistent.inventory.append(ingredient)
                 else:
-                    inventory.append(ingredient)
+                    persistent.inventory.append(ingredient)
                 purchase_state = True
             else:
                 purchase_state = False
 
 
-    '''def update_inventory(name, characteristic):
+    '''def update_persistent.inventory(name, characteristic):
         ingredient = {
             "name": name,
             "characteristic": characteristic,
             "multiplier": 1
         }
-        inventory.append(ingredient)
-        if len(inventory) > 0:
-            for x in range(len(inventory)):
-                if ingredient["name"] == inventory[x]["name"]:  
-                    inventory[x]["multiplier"] += 1
+        persistent.inventory.append(ingredient)
+        if len(persistent.inventory) > 0:
+            for x in range(len(persistent.inventory)):
+                if ingredient["name"] == persistent.inventory[x]["name"]:  
+                    persistent.inventory[x]["multiplier"] += 1
         else:
-            inventory.append(ingredient)'''
+            persistent.inventory.append(ingredient)'''
            
 
 
