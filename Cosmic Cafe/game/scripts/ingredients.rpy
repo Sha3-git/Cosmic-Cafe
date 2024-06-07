@@ -37,6 +37,12 @@ init python:
                 "characteristic": "Fizzy"
         },
         {
+                "name": "Comet Ice",
+                "rarity": "Common",
+                "price": 20,
+                "characteristic": "Cold"
+        },
+        {
                 "name": "Shot of Gamma",
                 "rarity": "Uncommon",
                 "price": 90,
