@@ -10,7 +10,10 @@ default persistent.loaded = False
 default persistent.default_balance = 1000
 default persistent.name = "user"
 default persistent.inventory = []
+default persistent.drinks = []
+default persistent.recipes = []
 define purchase_state = False
+define created_drink = {"name":"", "rarity":""}
 
 init python:
     class player_object:       
@@ -42,6 +45,46 @@ init python:
                 
             else:
                 purchase_state = False
+        def create_drink(self, ingredients):
+            purchase_state = True;
+        def update_drinks(self, select_ingredient):
+            # Check if the selected ingredients match any recipe
+            for recipe in recipes:
+                if set(select_ingredient) == set(recipe["ingredients"]) and recipe["unlocked"]:
+                    drink_name = recipe["name"]
+                    rarity = recipe["rarity"]
+                    price = recipe["price"]
+                    characteristics = recipe["characteristic"]
+                    
+                    recipe_found = False
+                    # Check if the drink already exists in persistent.drinks
+                    for drink in persistent.drinks:
+                        if drink["name"] == drink_name:
+                            drink["multiplier"] += 1
+                            #created_drink = {"name":drink_name, "rarity":rarity}
+                            created_drink["name"] = drink_name
+                            created_drink["rarity"] = rarity
+                            recipe_found = True
+                            #return drink_name, rarity
+
+                    # If the drink does not exist, add it to persistent.drinks
+                    if not recipe_found:
+                        persistent.drinks.append({
+                            "name": drink_name,
+                            "characteristics": characteristics,
+                            "rarity": rarity,
+                            "price": price,
+                        "multiplier": 1
+                        })
+                        #created_drink = {"name":drink_name, "rarity":rarity}
+                        created_drink["name"] = drink_name
+                        created_drink["rarity"] = rarity
+                        #return drink_name, rarity
+                else:
+            # If no matching recipe is found, return None
+                    created_drink["name"] = "Inedible Soda"
+                    created_drink["rarity"] ="Common"
+            #return None, None   
                 
 
 

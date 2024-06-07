@@ -2,9 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 43: invalid syntax
-                else:
-                 ^
+File "game/scripts/kitchen.rpy", line 79: invalid syntax
+        selected_ingredients.
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Thu Jun  6 21:57:46 2024
+Fri Jun  7 03:13:11 2024

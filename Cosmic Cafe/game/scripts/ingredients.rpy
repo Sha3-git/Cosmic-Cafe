@@ -3,7 +3,7 @@ init python:
         {
                 "name": "Bottled Nebula",
                 "rarity": "Common",
-                "price": 50,
+                "price": 100,
                 "characteristic": "Sweet"
         },
         {
@@ -21,13 +21,13 @@ init python:
         {
                 "name": "White Dwarf Water",
                 "rarity": "Common",
-                "price": 0,
+                "price": 15,
                 "characteristic": "Refreshing"
         },
         {
                 "name": "Milky Way",
                 "rarity": "Common",
-                "price": 55,
+                "price": 50,
                 "characteristic": "Warm"
         },
         {
@@ -140,7 +140,7 @@ init python:
         },
         {
                 "name": "Supergawp",
-                "rarity": "Epic",
+                "rarity": "Legendary",
                 "price": 10000,
                 "characteristic": "Nutty"
         }

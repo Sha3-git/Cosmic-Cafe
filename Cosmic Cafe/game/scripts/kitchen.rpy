@@ -2,7 +2,7 @@ screen kitchen():
     tag menu
     add "ui/kitchen.png"
     #add "gui/cafe_menu/menu.png"
-    
+    use drink_notif
     frame:
         background "gui/cafe_menu/menu.png"
         padding (40, 50, 0, 50)  # Add padding around the viewport (left, top, right, bottom)
@@ -24,6 +24,13 @@ screen kitchen():
         xalign 0.85
         yalign 0.5
         add "gui/cafe_menu/selections.png"
+    hbox: 
+        xalign 0.73
+        yalign 0.8
+        if len(selected_ingredients) >= 3:
+            imagebutton idle "ui/Create.png" hover "ui/Create.png" at hover_create_transform action [Function(session_user.update_drinks, selected_ingredients), Function(clear_ingredients)]
+        else:
+            imagebutton idle "ui/Create_disabled.png"
 
     hbox:
         xalign 0.83
@@ -38,6 +45,12 @@ screen kitchen():
             #imagebutton idle ing_2
             #imagebutton idle ing_3
     text "kitchen"
+
+transform hover_create_transform:
+    on hover:
+        linear 0.1 zoom 1.05
+    on idle:
+        linear 0.1 zoom 1.0
 
 init python:
     selected_ingredients = []
@@ -62,6 +75,12 @@ init python:
                 break
         selected_ingredients.remove(name)
         renpy.restart_interaction()
+    def clear_ingredients():
+        selected_ingredients.clear()
+        for item in persistent.inventory:
+            if item["multiplier"] == 0:
+                persistent.inventory.remove(item)
+        
 
 
 
