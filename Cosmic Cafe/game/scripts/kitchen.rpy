@@ -15,17 +15,10 @@ screen kitchen():
                 spacing 30
                 for i in range(len(persistent.inventory)):
                     vbox:
-                        imagebutton idle "ui/items/ingredient1.png" action Function(select_ingredient, "Bottled Nebula") 
+                        text str(persistent.inventory[i]["characteristic"]) color "#fff" xalign 0.5
+                        imagebutton idle "ui/items/" + persistent.inventory[i]["name"] + ".png" action Function(select_ingredient, persistent.inventory[i]["name"]) 
                         text str(persistent.inventory[i]["multiplier"]) color "#fff" xalign 0.5
-                vbox:
-                    imagebutton idle "ui/items/ingredient1.png" action Function(select_ingredient, "ui/items/ingredient1.png") 
-                    text "10" color "#fff" xalign 0.5
-                vbox:
-                    imagebutton idle "ui/items/ingredient2.png" action Function(select_ingredient, "ui/items/ingredient2.png") 
-                    text "10" color "#fff" xalign 0.5
-                vbox:
-                    imagebutton idle "ui/items/ingredient1.png" action Function(select_ingredient, "ui/items/ingredient1.png") 
-                    text "10" color "#fff" xalign 0.5
+                
     
     hbox:
         xalign 0.85

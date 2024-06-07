@@ -22,23 +22,29 @@ init python:
                 self.balance = self.balance - price
                 persistent.default_balance = self.balance
         def update_inventory(self, name, characteristic, price):
-            ingredient = {
+            placeholder_ingredient = {
                 "name": name,
                 "characteristic": characteristic,
                 "multiplier": 1
             }
             if self.balance >= price:
-                if len(persistent.inventory) > 0:
-                    for x in range(len(persistent.inventory)):
-                        if ingredient["name"] == persistent.inventory[x]["name"]:  
-                            persistent.inventory[x]["multiplier"] += 1
-                        else:
-                            persistent.inventory.append(ingredient)
-                else:
-                    persistent.inventory.append(ingredient)
+                ingredient_found = False
+
+                for item in persistent.inventory:
+                    if placeholder_ingredient["name"] == item["name"]:
+                        item["multiplier"] += 1
+                        ingredient_found = True
+                        break
+
+                if not ingredient_found:
+                    persistent.inventory.append(placeholder_ingredient)
                 purchase_state = True
+                
             else:
                 purchase_state = False
+                
+
+
 
 
     '''def update_persistent.inventory(name, characteristic):

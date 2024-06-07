@@ -18,6 +18,8 @@ screen store():
         
 
     $ rows = round(len(ingredients) /3) + (len(ingredients) % 3)
+    $ size = len(persistent.inventory)
+    text "[size]"
     
     fixed:
         viewport id "vp":
@@ -29,7 +31,9 @@ screen store():
             grid 5 rows:
                 spacing 50
                 for i in range (len(ingredients)):
-                    imagebutton idle "ui/ingredients/" + ingredients[i]["name"]+ ".png" action [Function(session_user.update_inventory, ingredients[i]["name"], ingredients[i]["characteristic"], ingredients[i]["price"]), Function(session_user.update_bal, ingredients[i]["price"], 1)]
+                    vbox:
+                        imagebutton idle "ui/ingredients/" + ingredients[i]["name"]+ ".png" action [Function(session_user.update_inventory, ingredients[i]["name"], ingredients[i]["characteristic"], ingredients[i]["price"]), Function(session_user.update_bal, ingredients[i]["price"], 1)]
+                        text str(ingredients[i]["characteristic"]) color "#fff" xalign 0.5
                
     use header()
 
