@@ -3,25 +3,33 @@ screen cafe():
     tag menu
     add "ui/cafe.png"
     
-    hbox:
+
+            
+    frame:
+        background "gui/cafe_menu/Cafe Menu.png"
         xalign 0.5
         yalign 0.5
-        #textbutton _("Serve Alyssa") action Jump("alyssa") text_color "#fff" style "cafe_button"
-        viewport id "vp":
-            xalign 0.5
-            yalign 0.5
-            mousewheel True
-            xmaximum 1200
-            ymaximum 600
-            vbox: 
-                add "ui/order.png" xalign 0.5 yalign 0.5
-            vbox:
-                xalign 0.2 
-                text "alyssa\n" color "#fff"
-                text "something sweet" color "#fff"
-            vbox: 
-                add "ui/order.png" xalign 0.5 yalign 0.7
-            scrollbars "vertical"
+        xsize 601  # Set the frame size to match the background image size
+        ysize 832
+        padding(60, 150, 60, 0)
+        has viewport id "cafe":
+            xmaximum 601
+            ymaximum 400
+            spacing 5  # Adjust spacing between the frames, if you need to reduce it further you can use a smaller value.
+            vpgrid :  # Adjust spacing between rows
+                cols 1
+                spacing 50
+                draggable True
+                mousewheel True
+                scrollbars "vertical"
+                for i in range(5):
+                        vbox:
+                            text "alyssa"
+                            hbox:
+                                box_wrap True
+                                text " alyssaalyssaalyssaalyssa something sweet and something salty" color "#fff" xalign 0.0 size 25
+     
+            
     hbox:
         xalign 0.05
         yalign 0.95

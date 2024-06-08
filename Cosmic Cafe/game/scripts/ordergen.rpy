@@ -1,7 +1,24 @@
 init python:
     import random
     characters = ["Alyssa", "Jasmine", "Jessica", "Genevieve"]
-    characteristics = ["sweet", "bitter", "fruity", "herbal"]
+    characteristics = [
+    "Sweet",
+    "Tangy",
+    "Refreshing",
+    "Warm",
+    "Fizzy",
+    "Cold",
+    "Energizing",
+    "Salty",
+    "Floral",
+    "Herbal",
+    "Fresh",
+    "Creamy",
+    "Nutty",
+    "Rich",
+    "Citrusy",
+    "Fruity"
+    ]
     sentences_1 = ["I'd like a -, drink please.", "I'm in the mood for something -, what do you suggest?", "May I have a - drink please?"]
     sentences_2 = ["I'd like a - and - drink please", "I'm in the mood for something - and -, what do you suggest?"]
     sentences_3 = ["I'd like a -, -, and - drink please", "I'm in the mood for something -, -, and -, what do you suggest?"]

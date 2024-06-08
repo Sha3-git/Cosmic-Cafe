@@ -5,7 +5,7 @@ init python:
             "rarity": "Common",
             "price": 50,
             "ingredients": ["Constellation Cocoa", "Comet Ice", "Milky Way"],
-            "characteristic": ["rich","warm", "cold"],
+            "characteristic": ["Rich","Warm", "Cold"],
             "discovered": True,
             "unlocked": True
         }

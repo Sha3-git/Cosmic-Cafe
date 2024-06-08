@@ -7,13 +7,13 @@
 
 # The game starts here.
 default persistent.loaded = False
-default persistent.default_balance = 1000
+default persistent.default_balance = 100000000
 default persistent.name = "user"
 default persistent.inventory = []
 default persistent.drinks = []
 default persistent.recipes = []
 define purchase_state = False
-define created_drink = {"name":"", "rarity":""}
+default created_drink = {"name":"", "rarity":""}
 
 init python:
     class player_object:       
@@ -65,7 +65,7 @@ init python:
                             created_drink["name"] = drink_name
                             created_drink["rarity"] = rarity
                             recipe_found = True
-                            #return drink_name, rarity
+                            break
 
                     # If the drink does not exist, add it to persistent.drinks
                     if not recipe_found:
@@ -79,12 +79,9 @@ init python:
                         #created_drink = {"name":drink_name, "rarity":rarity}
                         created_drink["name"] = drink_name
                         created_drink["rarity"] = rarity
-                        #return drink_name, rarity
                 else:
-            # If no matching recipe is found, return None
                     created_drink["name"] = "Inedible Soda"
                     created_drink["rarity"] ="Common"
-            #return None, None   
                 
 
 
@@ -107,7 +104,7 @@ init python:
 
 
 image splash = Movie(channel="movie_dp", play="/animated/splash_screen.webm")
-label splashscreen:
+label splashscreenn:
     show  splash with dissolve 
     with Pause(12.5)
     return

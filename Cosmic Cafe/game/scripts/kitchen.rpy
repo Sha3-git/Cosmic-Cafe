@@ -11,7 +11,8 @@ screen kitchen():
             xmaximum 1200
             ymaximum 1100
             xalign 0.05
-            grid 3 7:
+            $ rows = round(len(ingredients) /3) + (len(ingredients) % 3)
+            grid 3 rows:
                 spacing 30
                 for i in range(len(persistent.inventory)):
                     vbox:
@@ -44,7 +45,7 @@ screen kitchen():
             #imagebutton idle ing_1
             #imagebutton idle ing_2
             #imagebutton idle ing_3
-    text "kitchen"
+    text "kitchen [persistent.drinks[0]['multiplier']]"
 
 transform hover_create_transform:
     on hover:
