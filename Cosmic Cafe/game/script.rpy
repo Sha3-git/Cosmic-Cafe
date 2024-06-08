@@ -14,6 +14,7 @@ default persistent.drinks = []
 default persistent.recipes = []
 define purchase_state = False
 default created_drink = {"name":"", "rarity":""}
+default persistent.orders = []
 
 init python:
     class player_object:       
@@ -54,7 +55,7 @@ init python:
                     drink_name = recipe["name"]
                     rarity = recipe["rarity"]
                     price = recipe["price"]
-                    characteristics = recipe["characteristic"]
+                    characteristics = recipe["characteristics"]
                     
                     recipe_found = False
                     # Check if the drink already exists in persistent.drinks
@@ -82,6 +83,7 @@ init python:
                 else:
                     created_drink["name"] = "Inedible Soda"
                     created_drink["rarity"] ="Common"
+            
                 
 
 

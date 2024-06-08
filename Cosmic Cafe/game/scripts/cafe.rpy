@@ -2,13 +2,12 @@ screen cafe():
     $ renpy.transition(dissolve)
     tag menu
     add "ui/cafe.png"
-    
-
+    text "[persistent.orders[0]['character']]"
             
     frame:
         background "gui/cafe_menu/Cafe Menu.png"
         xalign 0.5
-        yalign 0.5
+        yalign 0.7
         xsize 601  # Set the frame size to match the background image size
         ysize 832
         padding(60, 150, 60, 0)
@@ -22,12 +21,14 @@ screen cafe():
                 draggable True
                 mousewheel True
                 scrollbars "vertical"
-                for i in range(5):
+                
+                for order in persistent.orders:
                         vbox:
-                            text "alyssa"
+                            
+                            text "[order['character']]"
                             hbox:
                                 box_wrap True
-                                text " alyssaalyssaalyssaalyssa something sweet and something salty" color "#fff" xalign 0.0 size 25
+                                textbutton ("[order['sentence']]") action [Function(select_order, order), Show("order")]
      
             
     hbox:
@@ -43,4 +44,10 @@ style cafe_button:
     hover_color "#ce3dd3"
     color "#ffffff"
 #style order_style:
+
+init python:
     
+    def select_order(order):
+        global current_order
+        current_order = order
+        renpy.restart_interaction()

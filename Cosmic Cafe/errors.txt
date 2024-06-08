@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/cafe.rpy", line 26: Line is indented, but the preceding mousewheel statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    scrollbars "vertical"
-    ^
+File "game/scripts/character_order.rpy", line 12: the xalign keyword argument was not given a value.
+    xalign 
+           ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat Jun  8 01:28:36 2024
+Sat Jun  8 15:10:22 2024
