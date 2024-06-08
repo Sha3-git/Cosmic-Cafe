@@ -45,7 +45,7 @@ screen kitchen():
             #imagebutton idle ing_1
             #imagebutton idle ing_2
             #imagebutton idle ing_3
-    text "kitchen [persistent.drinks[0]['multiplier']]"
+    #text "kitchen [persistent.drinks[0]['multiplier']]"
 
 transform hover_create_transform:
     on hover:

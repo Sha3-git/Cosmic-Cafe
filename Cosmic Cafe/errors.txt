@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/character_order.rpy", line 12: the xalign keyword argument was not given a value.
-    xalign 
-           ^
+File "game/scripts/character_order.rpy", line 15: reached end of line when expecting ':'.
+    if sell_interact 
+                     ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat Jun  8 15:10:22 2024
+Sat Jun  8 16:53:57 2024

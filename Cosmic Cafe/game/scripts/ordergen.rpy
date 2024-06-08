@@ -25,6 +25,7 @@ init python:
         multiple = random.randrange(1, 4)  # Generate randomly how many characteristics each order has
         c = []
         recipe_selected = random.choice(recipes)
+        profit = recipe_selected["price"]
                 
         # Generate multiple characteristics
         for x in range(multiple):  # Changed to `range(multiple)` to avoid extra iteration
@@ -64,7 +65,8 @@ init python:
         generated_order = {
             "character": character,
             "sentence": sentence,
-            "characteristics": c
+            "characteristics": c,
+            "profit": profit
         }
         return generated_order
 
@@ -73,7 +75,6 @@ init python:
             for i in range (5):
                 placeholder = gen_order()
                 persistent.orders.append(placeholder)
-
     check_and_generate_orders()
     
 

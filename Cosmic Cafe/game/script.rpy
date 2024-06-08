@@ -15,6 +15,8 @@ default persistent.recipes = []
 define purchase_state = False
 default created_drink = {"name":"", "rarity":""}
 default persistent.orders = []
+default sell_state = False
+default current_order = { "character": "","sentence": "","characteristics": "","profit": ""}
 
 init python:
     class player_object:       
@@ -83,6 +85,34 @@ init python:
                 else:
                     created_drink["name"] = "Inedible Soda"
                     created_drink["rarity"] ="Common"
+
+        def sell_drink(self, drink, current):
+            global sell_state
+            order_chars = current["characteristics"]
+            drink_chars = drink["characteristics"]
+            match_count = 0
+
+            for char in order_chars:
+                if char in drink_chars:
+                    match_count += 1
+            if len(order_chars) == 1 and match_count >= 1:
+                self.balance += current["profit"]
+                persistent.default_balance = self.balance
+                result = "Match"
+                sell_state = True
+            elif len(order_chars) == 2 and match_count >= 2:
+                self.balance += current["profit"]
+                persistent.default_balance = self.balance
+                result = "Match"
+                sell_state = True
+            elif len(order_chars) == 3 and match_count == 3:
+                self.balance += current["profit"]
+                persistent.default_balance = self.balance
+                result = "Match"
+                sell_state = True
+            else:
+                result = "No Match"
+                sell_state = False
             
                 
 

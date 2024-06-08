@@ -10,14 +10,14 @@ screen cafe():
         yalign 0.7
         xsize 601  # Set the frame size to match the background image size
         ysize 832
-        padding(60, 150, 60, 0)
+        padding(60, 150, 20, 0)
         has viewport id "cafe":
             xmaximum 601
             ymaximum 400
             spacing 5  # Adjust spacing between the frames, if you need to reduce it further you can use a smaller value.
             vpgrid :  # Adjust spacing between rows
                 cols 1
-                spacing 50
+                spacing 90
                 draggable True
                 mousewheel True
                 scrollbars "vertical"
@@ -44,10 +44,11 @@ style cafe_button:
     hover_color "#ce3dd3"
     color "#ffffff"
 #style order_style:
-
 init python:
-    
+    #current_order = {}
     def select_order(order):
-        global current_order
-        current_order = order
+        current_order["character"] = order["character"]
+        current_order["sentence"] = order["sentence"]
+        current_order["characteristics"] = order["characteristics"]
+        current_order["profit"] = order["profit"]
         renpy.restart_interaction()
