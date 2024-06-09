@@ -2,5 +2,5 @@ game/saves
 log.txt
 error.txt
 traceback.txt
-game/saves/*.json
-game/saves/persistent
+game/saves/navigation.json/
+game/saves/persistent/
