@@ -6,7 +6,6 @@ init -1 python:
             "price": 50,
             "ingredients": ["Constellation Cocoa", "Comet Ice", "Milky Way"],
             "characteristics": ["Rich","Warm", "Cold"],
-            "discovered": True,
             "unlocked": True
         }
 ]

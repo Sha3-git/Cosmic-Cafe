@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/character_order.rpy", line 15: reached end of line when expecting ':'.
-    if sell_interact 
-                     ^
+File "game/scripts/character_order.rpy", line 58: expected an indented block
+        global sell_state
+         ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat Jun  8 16:53:57 2024
+Sat Jun  8 18:12:20 2024

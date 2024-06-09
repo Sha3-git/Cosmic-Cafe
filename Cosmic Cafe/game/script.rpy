@@ -113,6 +113,14 @@ init python:
             else:
                 result = "No Match"
                 sell_state = False
+            for d in persistent.drinks:
+                if d["name"] == drink["name"]:
+                    d["multiplier"] -= 1
+                    if d["multiplier"] <= 0:
+                        persistent.drinks.remove(d)
+            for order in persistent.orders:
+                if order == current:
+                    persistent.orders.remove(order)
             
                 
 
