@@ -1,7 +1,7 @@
 $ recipes = recipes
 init python:
     import random
-    characters = ["Alyssa", "Jasmine", "Jessica", "Genevieve"]
+    characters = ["Alyssa", "Jessica", "Glen", "Vivian", "Daniel", "Luke", "Chris"]
     characteristics = ["Sweet","Tangy","Refreshing","Warm","Fizzy","Cold","Energizing","Salty","Floral","Herbal","Fresh","Creamy","Nutty","Rich","Citrusy","Fruity"
     ]
     sentences_1 = ["I'd like a -, drink please.", "I'm in the mood for something -, what do you suggest?", "May I have a - drink please?"]
@@ -75,7 +75,7 @@ init python:
             for i in range (5):
                 placeholder = gen_order()
                 persistent.orders.append(placeholder)
-    check_and_generate_orders()
+    #check_and_generate_orders()
     
 
 

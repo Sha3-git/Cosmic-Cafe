@@ -8,18 +8,12 @@ screen store():
     #$ bal = renpy.store.session_user.balance
    
    
-    hbox:
-        xalign 0.5
-        text "welcome to test cafe" style "cafe_text"
-    hbox:
-        yalign 1.0
-        xalign 1.0
-        textbutton _("return") action ShowMenu("lobby") text_style "my_text_button"
+   
         
 
     $ rows = round(len(ingredients) /3) + (len(ingredients) % 3)
     $ size = len(persistent.inventory)
-    text "[size]"
+    
     
     fixed:
         viewport id "vp":
@@ -32,10 +26,11 @@ screen store():
                 spacing 50
                 for i in range (len(ingredients)):
                     vbox:
-                        imagebutton idle "ui/ingredients/" + ingredients[i]["name"]+ ".png" action [Function(session_user.update_inventory, ingredients[i]["name"], ingredients[i]["characteristic"], ingredients[i]["price"]), Function(session_user.update_bal, ingredients[i]["price"], 1)]
+                        imagebutton idle "ui/ingredients/" + ingredients[i]["name"]+ ".png" action [Function(session_user.update_inventory, ingredients[i]["name"], ingredients[i]["characteristic"], ingredients[i]["price"]), Function(session_user.update_bal, ingredients[i]["price"], 1), Play("sound", "music/sfx/money_spent.mp3")]
                         text str(ingredients[i]["characteristic"]) color "#fff" xalign 0.5
                
     use header()
+    use return()
 
 
 

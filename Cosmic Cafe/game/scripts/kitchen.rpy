@@ -3,6 +3,7 @@ screen kitchen():
     add "ui/kitchen.png"
     #add "gui/cafe_menu/menu.png"
     use drink_notif
+    
     frame:
         background "gui/cafe_menu/menu.png"
         padding (40, 50, 0, 50)  # Add padding around the viewport (left, top, right, bottom)
@@ -19,7 +20,8 @@ screen kitchen():
                         text str(persistent.inventory[i]["characteristic"]) color "#fff" xalign 0.5
                         imagebutton idle "ui/items/" + persistent.inventory[i]["name"] + ".png" action Function(select_ingredient, persistent.inventory[i]["name"]) 
                         text str(persistent.inventory[i]["multiplier"]) color "#fff" xalign 0.5
-                
+    
+    imagebutton idle "ui/Return.png" hover "ui/Return_hover.png" action(Show("cafe"))yalign 0.95 xalign 0.95  at rotate_arrow    
     
     hbox:
         xalign 0.85
@@ -45,6 +47,7 @@ screen kitchen():
             #imagebutton idle ing_1
             #imagebutton idle ing_2
             #imagebutton idle ing_3
+    #text "[persistent.recipes[0]['name']] "
     #text "kitchen [persistent.drinks[0]['multiplier']]"
 
 transform hover_create_transform:
@@ -52,7 +55,8 @@ transform hover_create_transform:
         linear 0.1 zoom 1.05
     on idle:
         linear 0.1 zoom 1.0
-
+transform rotate_arrow:
+    rotate 180
 init python:
     selected_ingredients = []
 

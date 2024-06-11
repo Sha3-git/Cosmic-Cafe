@@ -2,8 +2,11 @@ screen cafe():
     $ renpy.transition(dissolve)
     tag menu
     add "ui/cafe.png"
-    text "[persistent.orders[0]['character']]"
-            
+    #text "[persistent.orders[0]['character']]"
+    if len(persistent.orders) <= 0:
+        $ check_and_generate_orders()
+    imagebutton idle "ui/Kitchen_icon.png" hover "ui/Kitchen_icon.png" at hover_kitchen_transform action Show("kitchen") xalign 0.29 yalign 0.18
+      
     frame:
         background "gui/cafe_menu/Cafe Menu.png"
         xalign 0.5
@@ -31,22 +34,28 @@ screen cafe():
                                 textbutton ("[order['sentence']]") action [Function(select_order, order), Show("order")]
      
             
-    hbox:
-        xalign 0.05
-        yalign 0.95
-        textbutton "kitchen" action Show("kitchen")
+
             
 
-
+   
     use header()
+    use return()
 
 style cafe_button:
     hover_color "#ce3dd3"
     color "#ffffff"
+
+transform hover_kitchen_transform:
+    on hover:
+        linear 0.1 zoom 1.05
+    on idle:
+        linear 0.1 zoom 1.0
+
 #style order_style:
 init python:
     #current_order = {}
     def select_order(order):
+        global current_order
         current_order["character"] = order["character"]
         current_order["sentence"] = order["sentence"]
         current_order["characteristics"] = order["characteristics"]

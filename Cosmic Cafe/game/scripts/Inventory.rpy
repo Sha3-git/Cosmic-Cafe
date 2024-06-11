@@ -1,4 +1,4 @@
-screen store():
+screen inventory():
     tag menu
     add "ui/store.png"
     $ renpy.transition(dissolve)

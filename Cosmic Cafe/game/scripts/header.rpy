@@ -1,12 +1,12 @@
 screen header():
-    hbox:
-        style "ratings"
-        add "ui/rating.png" 
+    #hbox:
+        #style "ratings"
+        #add "ui/rating.png" 
     #label
-    hbox:
-        yalign 0.09
-        xalign 0.15
-        text "1000" color "#fff"
+    #hbox:
+        #yalign 0.09
+        #xalign 0.15
+        #text "1000" color "#fff"
     hbox:
         box_wrap True
         style "currency"

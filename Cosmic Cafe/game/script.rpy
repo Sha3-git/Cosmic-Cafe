@@ -7,16 +7,19 @@
 
 # The game starts here.
 default persistent.loaded = False
-default persistent.default_balance = 100000000
+default persistent.default_balance = 5000
 default persistent.name = "user"
 default persistent.inventory = []
 default persistent.drinks = []
 default persistent.recipes = []
+
 define purchase_state = False
 default created_drink = {"name":"", "rarity":""}
 default persistent.orders = []
 default sell_state = False
 default current_order = { "character": "","sentence": "","characteristics": "","profit": ""}
+default recipe_found = False
+default persistent.time_of_day = True
 
 init python:
     class player_object:       
@@ -48,46 +51,59 @@ init python:
                 
             else:
                 purchase_state = False
-        def create_drink(self, ingredients):
-            purchase_state = True;
+     
         def update_drinks(self, select_ingredient):
-            # Check if the selected ingredients match any recipe
+            global created_drink
+            global recipe_found
+            recipe_found = False
             for recipe in recipes:
-                if set(select_ingredient) == set(recipe["ingredients"]) and recipe["unlocked"]:
-                    drink_name = recipe["name"]
-                    rarity = recipe["rarity"]
-                    price = recipe["price"]
-                    characteristics = recipe["characteristics"]
-                    
-                    recipe_found = False
-                    # Check if the drink already exists in persistent.drinks
+                drink_name = recipe["name"]
+                rarity = recipe["rarity"]
+                price = recipe["price"]
+                ingredients = recipe["ingredients"]
+                characteristics = recipe["characteristics"]
+                if set(select_ingredient) == set(ingredients) and recipe["unlocked"]:
+                    recipe_found = True
+                        # Check if the drink already exists in persistent.drinks
+                    drink_exists = False
                     for drink in persistent.drinks:
                         if drink["name"] == drink_name:
                             drink["multiplier"] += 1
-                            #created_drink = {"name":drink_name, "rarity":rarity}
                             created_drink["name"] = drink_name
                             created_drink["rarity"] = rarity
-                            recipe_found = True
+                            drink_exists = True
                             break
-
-                    # If the drink does not exist, add it to persistent.drinks
-                    if not recipe_found:
+                    if not drink_exists:
+                        # If the drink does not exist, add it to persistent.drinks
                         persistent.drinks.append({
-                            "name": drink_name,
-                            "characteristics": characteristics,
-                            "rarity": rarity,
-                            "price": price,
+                        "name": drink_name,
+                        "characteristics": characteristics,
+                        "rarity": rarity,
+                        "price": price,
                         "multiplier": 1
                         })
-                        #created_drink = {"name":drink_name, "rarity":rarity}
+                            
                         created_drink["name"] = drink_name
                         created_drink["rarity"] = rarity
-                else:
-                    created_drink["name"] = "Inedible Soda"
-                    created_drink["rarity"] ="Common"
+                       
+                    recipe_exists = False
+                    for persistent_recipe in persistent.recipes:
+                        if persistent_recipe["name"] == recipe["name"]:
+                            recipe_exists = True
+                            break
+
+                    if not recipe_exists:
+                        # If the recipe does not exist, add it to persistent.recipes
+                        persistent.recipes.append(recipe)
+                    break
+            if not recipe_found:
+                created_drink["name"] = "Inedible Soda"
+                created_drink["rarity"] = "Common"         
+
 
         def sell_drink(self, drink, current):
             global sell_state
+            sell_state = False
             order_chars = current["characteristics"]
             drink_chars = drink["characteristics"]
             match_count = 0
@@ -100,27 +116,31 @@ init python:
                 persistent.default_balance = self.balance
                 result = "Match"
                 sell_state = True
+                renpy.music.play("music/sfx/order_success.mp3", channel='sound', loop=False)
             elif len(order_chars) == 2 and match_count >= 2:
                 self.balance += current["profit"]
                 persistent.default_balance = self.balance
                 result = "Match"
                 sell_state = True
+                renpy.music.play("music/sfx/order_success.mp3", channel='sound', loop=False)
             elif len(order_chars) == 3 and match_count == 3:
                 self.balance += current["profit"]
                 persistent.default_balance = self.balance
                 result = "Match"
                 sell_state = True
+                renpy.music.play("music/sfx/order_success.mp3", channel='sound', loop=False)
             else:
                 result = "No Match"
                 sell_state = False
-            for d in persistent.drinks:
-                if d["name"] == drink["name"]:
-                    d["multiplier"] -= 1
-                    if d["multiplier"] <= 0:
-                        persistent.drinks.remove(d)
-            for order in persistent.orders:
-                if order == current:
-                    persistent.orders.remove(order)
+            if sell_state == True:
+                for d in persistent.drinks:
+                    if d["name"] == drink["name"]:
+                        d["multiplier"] -= 1
+                        if d["multiplier"] <= 0:
+                            persistent.drinks.remove(d)
+                for order in persistent.orders:
+                    if order == current:
+                        persistent.orders.remove(order)
             
                 
 
@@ -140,12 +160,16 @@ init python:
                     persistent.inventory[x]["multiplier"] += 1
         else:
             persistent.inventory.append(ingredient)'''
+    
+
            
 
 
+
+
 image splash = Movie(channel="movie_dp", play="/animated/splash_screen.webm")
-label splashscreenn:
-    show  splash with dissolve 
+label splashscreen:
+    show splash with dissolve 
     with Pause(12.5)
     return
 label start:

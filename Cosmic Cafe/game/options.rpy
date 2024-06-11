@@ -158,6 +158,23 @@ define config.autosave_frequency = 1000
 
 define config.window_icon = "gui/window_icon.png"
 
+## Mouse ########################################################################
+##
+## The Game's Mouse.
+define config.mouse = { }
+define config.mouse['default'] = [("gui/Mouse.png", 0, 0)]
+# Remove keys from game_menu
+init -1 python:
+    config.keymap['game_menu'].remove('K_ESCAPE')
+    config.keymap['game_menu'].remove('K_MENU')
+    config.keymap['game_menu'].remove('K_PAUSE')
+    config.keymap['game_menu'].remove('mouseup_3')
+
+    config.keymap['skip'].remove('K_LCTRL')
+    config.keymap['skip'].remove('K_RCTRL')
+
+    config.keymap['save_delete'].remove('K_DELETE')
+    config.keymap['save_delete'].remove('KP_DELETE')
 
 ## Build configuration #########################################################
 ##

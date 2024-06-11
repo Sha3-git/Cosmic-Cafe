@@ -262,10 +262,10 @@ screen quick_menu():
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
-init python:
-    config.overlay_screens.append("quick_menu")
+#init python:
+    #config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+default quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
@@ -285,10 +285,40 @@ style quick_button_text:
 ##
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
-
+transform hover_start_transform:
+    on hover:
+        linear 0.1 zoom 1.05
+    on idle:
+        linear 0.1 zoom 1.0
+transform hover_settings_transform:
+    on hover:
+        linear 0.1 zoom 1.05
+    on idle:
+        linear 0.1 zoom 1.0
+transform hover_quit_transform:
+    on hover:
+        linear 0.1 zoom 1.05
+    on idle:
+        linear 0.1 zoom 1.0
 screen navigation():
     
     add "gui/main_menu/menu options.png" yalign 0.5 xalign 0.1
+    vbox:
+        xalign 0.14
+        yalign 0.25
+        imagebutton idle "gui/main_menu/menu button.png" hover "gui/main_menu/menu button.png" at hover_start_transform action Start() xalign 0.5
+        text "Start" xalign 0.5 color "#fff"
+    vbox:
+        xalign 0.14
+        yalign 0.45
+        imagebutton idle "gui/main_menu/menu button.png" hover "gui/main_menu/menu button.png" at hover_settings_transform action ShowMenu("preferences") xalign 0.5
+        text "Settings" xalign 0.5 color "#fff"
+    vbox:
+        xalign 0.14
+        yalign 0.63
+        imagebutton idle "gui/main_menu/menu button.png" hover "gui/main_menu/menu button.png" at hover_quit_transform action Quit(confirm=not main_menu) xalign 0.5
+        text "Quit" xalign 0.5 color "#fff"
+    
 
     vbox:
         style_prefix "navigation"
@@ -298,40 +328,40 @@ screen navigation():
 
         spacing gui.navigation_spacing
 
-        if main_menu:
+        #if main_menu:
 
-            textbutton _("Start") action Start()
+            #textbutton _("Start") action Start()
 
-        else:
+        #else:
 
-            textbutton _("History") action ShowMenu("history")
+            #textbutton _("History") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            #textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        #textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        #textbutton _("Preferences") action ShowMenu("preferences")
 
-        if _in_replay:
+        #if _in_replay:
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
+            #textbutton _("End Replay") action EndReplay(confirm=True)
 
-        elif not main_menu:
+        #elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            #textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        #textbutton _("About") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            #textbutton _("Help") action ShowMenu("help")
 
-        if renpy.variant("pc"):
+        #if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            #textbutton _("Quit") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button

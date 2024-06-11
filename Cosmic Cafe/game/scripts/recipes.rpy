@@ -1,28 +1,35 @@
 screen recipes():
     tag menu
-    text "recipe"
-    fixed:
+    add "ui/recipe.png"
+    frame: 
+        background None
+        xalign 0.5
         viewport id "recipe":
             mousewheel True
-            xmaximum 1920
+            xmaximum 954
             ymaximum 1080
+
             grid 4 4 spacing -4:
                 for r in recipes:
-                    if r["name"] in persistent.recipes:
-                        imagebutton idle "gui/recipe_menu/" + r["name"] + ".png"
+                    $ recipe_found = False
+                    for pr in persistent.recipes:
+                        if pr["name"] == r["name"]:
+                            $ recipe_found = True
+                            break
+                    if recipe_found:
+                        imagebutton idle "gui/recipe_menu/" + r["name"] + ".png" at scaled_image
                     else:
-                        imagebutton idle "gui/recipe_menu/" + r["name"] + " Locked.png"
-
+                        imagebutton idle "gui/recipe_menu/" + r["name"] + " Locked.png"at scaled_image
+    use return()
+    
+transform scaled_image:
+        zoom 0.5  # Scale down to 50%. Adjust the value as needed.
 init -1 python:
+    global sunlight_state
+    global epitome_state
+    sunlight_state = False
+    epitome_state = False
     recipes = [
-    {
-        "name": "Void Cocoa",
-        "rarity": "Common",
-        "price": 870,
-        "ingredients": ["Constellation Cocoa", "Comet Ice", "Milky Way"],
-        "characteristics": ["Rich","Warm", "Cold"],
-        "unlocked": True
-    },
     {
         "name": "Space Static",
         "rarity": "Common",
@@ -104,6 +111,14 @@ init -1 python:
         "unlocked": True
     },
     {
+        "name": "Void Cocoa",
+        "rarity": "Epic",
+        "price": 870,
+        "ingredients": ["Constellation Cocoa", "Comet Ice", "Milky Way"],
+        "characteristics": ["Rich","Warm", "Cold"],
+        "unlocked": True
+    },
+    {
         "name": "Phenomena",
         "rarity": "Epic",
         "price": 1200,
@@ -133,7 +148,7 @@ init -1 python:
         "price": 30915,
         "ingredients": ["Orion Orange", "Supergawp", "Quantum Foam"],
         "characteristics": ["Citrusy","Nutty", "Sweet"],
-        "unlocked": False
+        "unlocked": True
     },
     {
         "name": "Epitome",
@@ -141,7 +156,7 @@ init -1 python:
         "price": 30645,
         "ingredients": ["Supergawp","Pulsar Pearls", "White Dwarf Water"],
         "characteristics": ["Nutty","Sweet", "Refreshing"],
-        "unlocked": False
+        "unlocked": True
     }
 ]
 
