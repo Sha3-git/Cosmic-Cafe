@@ -83,7 +83,7 @@ init python:
     def clear_ingredients():
         selected_ingredients.clear()
         for item in persistent.inventory:
-            if item["multiplier"] == 0:
+            if item["multiplier"] <= 0:
                 persistent.inventory.remove(item)
         
 

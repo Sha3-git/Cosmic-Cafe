@@ -7,7 +7,7 @@
 
 # The game starts here.
 default persistent.loaded = False
-default persistent.default_balance = 5000
+default persistent.default_balance = 10000
 default persistent.name = "user"
 default persistent.inventory = []
 default persistent.drinks = []

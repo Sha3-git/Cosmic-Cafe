@@ -30,7 +30,7 @@ default summoned_recipe = ""
 init python:
     def gacha():
         gacha = random.choice(recipes)
-        persistent.default_balance -= gacha["price"]
+        persistent.default_balance -= 1000
         nopity = random.randint(1, 100) % 2
         if nopity == 0:
             global summoned_recipe
