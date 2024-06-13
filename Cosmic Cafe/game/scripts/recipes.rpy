@@ -50,7 +50,7 @@ init -1 python:
         "name": "Sun Proximity",
         "rarity": "Uncommon",
         "price": 555,
-        "ingredients": ["Lunar Lavendar", "Sparkling Rain", "Comet Ice"],
+        "ingredients": ["Lunar Lavender", "Sparkling Rain", "Comet Ice"],
         "characteristics": ["Floral","Fizzy", "Cold"],
         "unlocked": True
     },
