@@ -95,7 +95,7 @@ init python:
                     if not recipe_exists:
                         # If the recipe does not exist, add it to persistent.recipes
                         persistent.recipes.append(recipe)
-                    break
+                #break
             if not recipe_found:
                 created_drink["name"] = "Inedible Soda"
                 created_drink["rarity"] = "Common"         
