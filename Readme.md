@@ -11,6 +11,11 @@ A gacha visual novel-like game where the user is running a dream-like cafe that 
 Download and install the distributions or your system type -- either pc or mac.
 Extract the zip file and find and launch the game executeable.
 Save file can manually be deleted in the files if you want to restart a fresh game.
+# How to play the game
+
+> Players must unlock recipes to craft drinks and serve customers to earn money.
+> Utilize the recipe summon feature to unlock recipes with a 50% chance
+> Game orders are automatically refreshed once all ordersare completed or canceled
 
 ## Directories
 * Web distribution [Cosmic Cafe](https://quinette.itch.io/cosmic-cafe)
