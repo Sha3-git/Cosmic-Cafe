@@ -60,3 +60,10 @@
 * Far Out - https://www.pinterest.ca/pin/59672763806934854/
 * Sunlight - https://www.pinterest.ca/pin/1077486279590976904/
 * Epitome - https://www.pinterest.ca/pin/14636767533992919/
+* Lobby music - https://pixabay.com/music/modern-classical-relaxing-piano-201831/
+* Lobby chimes - https://pixabay.com/sound-effects/wind-chime-small-64660/
+* Order complete - https://pixabay.com/sound-effects/cartoon-wink-magic-sparkle-6896/
+* Button clicks - https://pixabay.com/sound-effects/ui-click-43196/
+* Store purchase - https://pixabay.com/sound-effects/keys-ring-catch-100176/
+* Summoning - https://pixabay.com/sound-effects/abstract-magic-whoosh-03-204485/
+
